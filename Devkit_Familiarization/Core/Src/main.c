@@ -103,8 +103,17 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	  gpioControlLed();
-	  gpioControlSet(&huart3);
+
+	  if (true != gpioControlLed())
+	  {
+		  printf("Unable to blink LED\n");
+	  }
+
+	  if (true != gpioControlSet(&huart3))
+	  {
+		  printf("Unable to print using UART\n");
+	  }
+
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
